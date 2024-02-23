@@ -1,5 +1,6 @@
 from random import randint
 import datetime
+import codecs
 
 def receive_data():
     current_date_time = datetime.datetime.now()
@@ -11,22 +12,22 @@ def new_game():
     print("В этой игре Вам загадано случайное двухзначное число, вам предстоит его угадать")
     print("Количество Ваших попыток 10")
     print("Приятной игры!")
-    with open("log.txt", "a") as fin:
+    with open("log.txt", "a", encoding="utf-8") as fin:
         now_data = receive_data()
-        new_record = "[" + str(now_data) + u"][INFO][System]: Загадано число " + str(number)
-        fin.write(new_record + "\n")
+        new_record = "[" + str(now_data) + u"][INFO][System]: Загадано число " + str(number) + "\n"
+        fin.write(new_record)
     return number
 
 
 def record_try(number):
-    with open("log.txt", "a") as fin:
+    with open("log.txt", "a", encoding="utf-8") as fin:
         now_data = receive_data()
         new_record = "[" + str(now_data) + u"][INFO][User]: Введено число " + str(number)
         fin.write(new_record + "\n")
 
 
 def record_win(number):
-    with open("log.txt", "a") as fin:
+    with open("log.txt", "a", encoding="utf-8") as fin:
         now_data = receive_data()
         new_record = "[" + str(now_data) + u"][INFO][System]: Число угаданно"
         fin.write(new_record + "\n")
