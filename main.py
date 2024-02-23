@@ -40,7 +40,10 @@ def main():
     attempts = 0
     more_salaries =[]
     less_salaries = []
-    while attempts <= 10:
+    while True:
+        if attempts == 10:
+            print("Вы проиграли: закончились попытки")
+            break
         try:
             player_number = int(input("Введите двухзначное число: "))
             if player_number > 9 and player_number < 100:
